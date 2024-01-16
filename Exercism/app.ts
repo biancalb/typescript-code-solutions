@@ -2,6 +2,7 @@ import { transciptRna } from "./rna-transcription";
 import { age } from "./space-age";
 import { Matrix } from "./matrix";
 import { score as scoreDarts } from "./darts";
+import { isPangram } from "./pangram";
 
 // console.log('Rna Transcription')
 // // const nucleotides: string = 'C';
@@ -19,9 +20,15 @@ import { score as scoreDarts } from "./darts";
 // let col = new Matrix('1 2\n3 4').columns[0];
 // console.log('col= ' + col);
 
-console.log('Darts');
-const coordinates: [number, number] = [0, 10];
-scoreDarts(coordinates[0], coordinates[1]);
+// console.log('Darts');
+// const coordinates: [number, number] = [0, 10];
+// scoreDarts(coordinates[0], coordinates[1]);
 
+console.log('Pangram');
+// const str = '';
+// const str = 'abcdefghijklmnopqrstuvwxyz';
+// const str = 'the quick brown fox jumps over the lazy dog';
+const str = 'a quick movement of the enemy will jeopardize five gunboats';
+isPangram(str);
 
 
