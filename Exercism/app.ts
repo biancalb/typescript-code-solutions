@@ -3,6 +3,7 @@ import { age } from "./space-age";
 import { Matrix } from "./matrix";
 import { score as scoreDarts } from "./darts";
 import { isPangram } from "./pangram";
+import { hey } from "./bob";
 
 // console.log('Rna Transcription')
 // // const nucleotides: string = 'C';
@@ -24,11 +25,21 @@ import { isPangram } from "./pangram";
 // const coordinates: [number, number] = [0, 10];
 // scoreDarts(coordinates[0], coordinates[1]);
 
-console.log('Pangram');
-// const str = '';
-// const str = 'abcdefghijklmnopqrstuvwxyz';
-// const str = 'the quick brown fox jumps over the lazy dog';
-const str = 'a quick movement of the enemy will jeopardize five gunboats';
-isPangram(str);
+// console.log('Pangram');
+// // const str = '';
+// // const str = 'abcdefghijklmnopqrstuvwxyz';
+// // const str = 'the quick brown fox jumps over the lazy dog';
+// const str = 'a quick movement of the enemy will jeopardize five gunboats';
+// isPangram(str);
+
+console.log('Bob lackadaisical \n');
+// const message = 'Tom-ay-to, tom-aaaah-to.';
+// const message = 'WATCH OUT!';
+// const message = 'WHAT THE HELL WERE YOU THINKING?';
+// const message = ' ';
+// const message = '4?';
+const message = '1, 2, 3';
+hey(message);
+
 
 
