@@ -5,6 +5,7 @@ import { score as scoreDarts } from "./darts";
 import { isPangram } from "./pangram";
 import { hey } from "./bob";
 import { GradeSchool } from "./grade-school";
+import { countWords } from "./word-count";
 
 // console.log('Rna Transcription')
 // // const nucleotides: string = 'C';
@@ -41,26 +42,24 @@ import { GradeSchool } from "./grade-school";
 // const message = '1, 2, 3';
 // hey(message);
 
-console.log('Grade School\n');
-const student1:[string, number] = ['Aimee', 2];
-const student2:[string, number] = ['Blair', 2];
-const student3:[string, number] = ['Paul', 2];
-const student4:[string, number] = ['James', 2];
-const student5:[string, number] = ['Chelsea', 3];
-const student6:[string, number] = ['Logan', 7];
-let school = new GradeSchool;
-// school.add(student2[0], student2[1]);
-// school.add(student1[0], student1[1]);
+// console.log('Grade School\n');
+// const student1:[string, number] = ['Aimee', 2];
+// const student2:[string, number] = ['Blair', 2];
+// const student3:[string, number] = ['Paul', 2];
+// const student4:[string, number] = ['James', 2];
+// const student5:[string, number] = ['Chelsea', 3];
+// const student6:[string, number] = ['Logan', 7];
+// let school = new GradeSchool;
+// // school.add(student2[0], student2[1]);
+// // school.add(student1[0], student1[1]);
 // school.add(student3[0], student3[1]);
 // school.add(student6[0], student6[1]);
 // school.add(student5[0], student5[1]);
+// school.roster();
+// school.grade(2);
 
-school.add('Aimee', 2)
-const roster = school.roster()
-try {
-      roster[2].push('Oops.')
-    } catch {
-      /* empty */
-    }
-    console.log(roster);
-    school.roster();
+console.log('Word School\n');
+// const str = '\"That\'s the password: \'PASSWORD 123\'!", cried the Special Agent.\nSo I fled.'
+const str = 'reserved words like constructor and toString ok?'
+// console.log(str)
+countWords(str);
