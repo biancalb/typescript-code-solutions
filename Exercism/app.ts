@@ -6,6 +6,7 @@ import { isPangram } from "./pangram";
 import { hey } from "./bob";
 import { GradeSchool } from "./grade-school";
 import { countWords } from "./word-count";
+import { Clock } from "./clock";
 
 // console.log('Rna Transcription')
 // // const nucleotides: string = 'C';
@@ -58,8 +59,15 @@ import { countWords } from "./word-count";
 // school.roster();
 // school.grade(2);
 
-console.log('Word School\n');
-// const str = '\"That\'s the password: \'PASSWORD 123\'!", cried the Special Agent.\nSo I fled.'
-const str = 'reserved words like constructor and toString ok?'
-// console.log(str)
-countWords(str);
+// console.log('Word School\n');
+// // const str = '\"That\'s the password: \'PASSWORD 123\'!", cried the Special Agent.\nSo I fled.'
+// const str = 'reserved words like constructor and toString ok?'
+// // console.log(str)
+// countWords(str);
+
+console.log('Clock')
+// console.log(new Clock(25, 5).toString());
+// console.log(new Clock(10, 0).plus(3).toString())
+// console.log(new Clock(15, 36).equals(new Clock(15, 37)))
+// console.log(new Clock(10, 37).equals(new Clock(34, 37)))
+console.log(new Clock(8).toString())
