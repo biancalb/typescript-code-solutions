@@ -7,6 +7,7 @@ import { hey } from "./bob";
 import { GradeSchool } from "./grade-school";
 import { countWords } from "./word-count";
 import { Clock } from "./clock";
+import { commands } from "./secret-handshake";
 
 // console.log('Rna Transcription')
 // // const nucleotides: string = 'C';
@@ -65,9 +66,13 @@ import { Clock } from "./clock";
 // // console.log(str)
 // countWords(str);
 
-console.log('Clock')
-// console.log(new Clock(25, 5).toString());
-// console.log(new Clock(10, 0).plus(3).toString())
-// console.log(new Clock(15, 36).equals(new Clock(15, 37)))
-// console.log(new Clock(10, 37).equals(new Clock(34, 37)))
-console.log(new Clock(8).toString())
+// console.log('Clock')
+// // console.log(new Clock(25, 5).toString());
+// // console.log(new Clock(10, 0).plus(3).toString())
+// // console.log(new Clock(15, 36).equals(new Clock(15, 37)))
+// // console.log(new Clock(10, 37).equals(new Clock(34, 37)))
+// console.log(new Clock(8).toString())
+
+console.log('Secret Handshake')
+const n = 26;
+commands(n);
