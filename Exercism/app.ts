@@ -8,6 +8,7 @@ import { GradeSchool } from "./grade-school";
 import { countWords } from "./word-count";
 import { Clock } from "./clock";
 import { commands } from "./secret-handshake";
+import { find } from "./binary-search";
 
 // console.log('Rna Transcription')
 // // const nucleotides: string = 'C';
@@ -73,6 +74,17 @@ import { commands } from "./secret-handshake";
 // // console.log(new Clock(10, 37).equals(new Clock(34, 37)))
 // console.log(new Clock(8).toString())
 
-console.log('Secret Handshake')
-const n = 26;
-commands(n);
+// console.log('Secret Handshake')
+// const n = 26;
+// commands(n);
+
+console.log('Binary Search')
+// const values:[Array<number>, number] = [[8, 4, 12, 16, 23, 28, 32], 23];
+const values:[Array<number>, number] = [[6], 6];
+find(values[0], values[1])
+
+
+// const cities = ["Tokyo","Cairo","Los Angeles","Paris","Seattle"];
+
+// const newCityArr = cities.slice(2,4);
+// console.log(newCityArr)
