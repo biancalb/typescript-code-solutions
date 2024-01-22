@@ -1,52 +1,78 @@
+type MyArray = {
+    Item: Array<number>,
+    Index: number,
+    WasFound: boolean
+}
+
 export function find(haystack: Array<number>, needle: number): number | never {
-    if(!haystack) new Error('Value not in array');
+    checkValidArray(haystack);
 
     haystack.sort(function(a, b){return a - b});
     console.log('sorted haystack= ' + haystack)
-    
-    let foundItem: number | Array<number> = [...haystack];
 
-    while(!(typeof foundItem === "number")) {
-        if (!foundItem) new Error('Value not in array');
-        
-        foundItem = splitArr(foundItem, needle);
+    let found: MyArray = {
+        Item: [...haystack],
+        Index: findMedianIndex(haystack),
+        WasFound: false
+    }
+    
+    while(!found.WasFound)  {
+        found = splitArr(found, needle);
+        checkValidArray(found.Item);
     }
 
-    console.log('found item= ' + foundItem);
-    return foundItem;
+    console.log('found item= ' + found.Item);
+    console.log('found index= ' + found.Index);
+
+    return found.Index;
 }
 
-function splitArr(arr:Array<number>, needle:number) {
+function splitArr(myArr:MyArray, needle:number): MyArray {
+    const arr = myArr.Item;
 
     const medianIndex = findMedianIndex(arr);
-    console.log('-------------');
-    console.log('medianIndex= ' + medianIndex);
     
-    if (arr[medianIndex] == needle) 
-    {
+    console.log('-------------');
+    console.log('medianItem= ' + arr[medianIndex]);
+    console.log('medianIndex= ' + medianIndex);
+    console.log('foundIndex= ' + myArr.Index);
+    
+    if (arr[medianIndex] == needle) {
         console.log('found= ' + arr[medianIndex])
-        return medianIndex;
+        console.log('myArr.Index= ' + myArr.Index)
+        myArr.WasFound = true;
+        return myArr;
+        
     }
-    else if (arr[medianIndex] < needle){
+    else if (arr[medianIndex] < needle) {
         let eliminatedArr = arr.slice(medianIndex + 1, arr.length);
-        console.log('eliminatedArr > = ' + eliminatedArr);
-        return eliminatedArr;
-        // splitArr(eliminatedArr, needle);
+        myArr.Item = [...eliminatedArr];
+        myArr.Index += Math.round(medianIndex / 2);
+        console.log('myArr.Index= ' + myArr.Index)
+        console.log('myArr.Item > = ' + myArr.Item);
+        return myArr;
         
     } else {
-        let eliminatedArr = arr.slice(0, medianIndex)
-        console.log('eliminatedArr < = ' + eliminatedArr)
-        return eliminatedArr;
-        // splitArr(eliminatedArr, needle);
+        let eliminatedArr = arr.slice(0, medianIndex);
+        myArr.Item = [...eliminatedArr];
+        myArr.Index -= Math.round(medianIndex / 2);
+        console.log('myArr.Index= ' + myArr.Index)
+        console.log('myArr.Item < = ' + myArr.Item);
+        return myArr;    
     }
 }
 
 function findMedianIndex(arr:Array<number>): number {
-    if (arr.length % 2 != 0){
-        const medianIndex = Math.trunc(arr.length/2);
+    if (arr.length % 2 != 0) {
+        const medianIndex = Math.trunc(arr.length / 2);
         return medianIndex;
 
     } else {
+
         throw new Error('Not implemented')
     }
+}
+
+function checkValidArray(arr:Array<number>) {
+    if(!arr || arr.length === 0) throw new Error('Value not in array');
 }

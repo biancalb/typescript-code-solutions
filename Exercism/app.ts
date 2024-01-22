@@ -80,11 +80,10 @@ import { find } from "./binary-search";
 
 console.log('Binary Search')
 // const values:[Array<number>, number] = [[8, 4, 12, 16, 23, 28, 32], 23];
-const values:[Array<number>, number] = [[6], 6];
+// const values:[Array<number>, number] = [[6], 6];
+// const values:[Array<number>, number] = [[], 1];
+// const values:[Array<number>, number] = [[1,2,3], 0];
+// const values:[Array<number>, number] = [[1, 3, 4, 6, 8, 9, 11], 1]; //0
+// const values:[Array<number>, number] = [[1, 3, 4, 6, 8, 9, 11], 11]; //6
+const values:[Array<number>, number] = [[1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 634], 144]; //9
 find(values[0], values[1])
-
-
-// const cities = ["Tokyo","Cairo","Los Angeles","Paris","Seattle"];
-
-// const newCityArr = cities.slice(2,4);
-// console.log(newCityArr)
