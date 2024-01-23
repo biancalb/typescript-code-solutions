@@ -9,6 +9,7 @@ import { countWords } from "./word-count";
 import { Clock } from "./clock";
 import { commands } from "./secret-handshake";
 import { find } from "./binary-search";
+import { LinkedList } from "./linked-list";
 
 // console.log('Rna Transcription')
 // // const nucleotides: string = 'C';
@@ -78,12 +79,22 @@ import { find } from "./binary-search";
 // const n = 26;
 // commands(n);
 
-console.log('Binary Search')
-// const values:[Array<number>, number] = [[8, 4, 12, 16, 23, 28, 32], 23];
-// const values:[Array<number>, number] = [[6], 6];
-// const values:[Array<number>, number] = [[], 1];
-// const values:[Array<number>, number] = [[1,2,3], 0];
-// const values:[Array<number>, number] = [[1, 3, 4, 6, 8, 9, 11], 1]; //0
-// const values:[Array<number>, number] = [[1, 3, 4, 6, 8, 9, 11], 11]; //6
-const values:[Array<number>, number] = [[1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 634], 144]; //9
-find(values[0], values[1])
+// console.log('Binary Search')
+// // const values:[Array<number>, number] = [[8, 4, 12, 16, 23, 28, 32], 23];
+// // const values:[Array<number>, number] = [[6], 6];
+// // const values:[Array<number>, number] = [[], 1];
+// // const values:[Array<number>, number] = [[1,2,3], 0];
+// // const values:[Array<number>, number] = [[1, 3, 4, 6, 8, 9, 11], 1]; //0
+// // const values:[Array<number>, number] = [[1, 3, 4, 6, 8, 9, 11], 11]; //6
+// const values:[Array<number>, number] = [[1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 634], 144]; //9
+// // const values:[Array<number>, number] = [[1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377], 21]; //5
+// find(values[0], values[1])
+
+
+console.log('Linked List')
+const list = new LinkedList<number>()
+list.unshift(10)
+list.unshift(20)
+console.log(list.pop())
+console.log(list.pop())
+
