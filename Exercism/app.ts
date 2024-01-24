@@ -10,6 +10,7 @@ import { Clock } from "./clock";
 import { commands } from "./secret-handshake";
 import { find } from "./binary-search";
 import { LinkedList } from "./linked-list";
+import { Rational } from './rational-numbers'
 
 // console.log('Rna Transcription')
 // // const nucleotides: string = 'C';
@@ -91,10 +92,28 @@ import { LinkedList } from "./linked-list";
 // find(values[0], values[1])
 
 
-console.log('Linked List')
-const list = new LinkedList<number>()
-list.unshift(10)
-list.unshift(20)
-console.log(list.pop())
-console.log(list.pop())
+// console.log('Linked List')
+// const list = new LinkedList<number>()
+// list.unshift(10)
+// list.unshift(20)
+// console.log(list.pop())
+// console.log(list.pop())
 
+
+function assertRational( 
+    actual: Rational,
+    expectedNumerator: number,
+    expectedDenominator: number
+   ): void {
+    console.log('actual')
+    console.log('numerator= ' + actual.numerator)
+    console.log('denominator= ' + actual.denominator)
+    console.log('\n')
+    console.log('num: ')
+    console.log(actual.numerator === expectedNumerator)
+    console.log('den: ')
+    console.log(actual.denominator === expectedDenominator)
+  }
+
+  const actual = new Rational(-3, 5).exprational(-3)
+  assertRational(actual, -125, 27)
