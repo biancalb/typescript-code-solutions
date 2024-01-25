@@ -16,21 +16,21 @@ export class Rational {
         // (a₁ * b₂ + a₂ * b₁) / (b₁ * b₂)
         const sumNum = (this.numerator * rational.denominator + rational.numerator * this.denominator);  
         const sumDen = (this.denominator * rational.denominator);
-        return new Rational(sumNum, sumDen);
+        return new Rational(sumNum, sumDen).reduce();
     }
   
     sub(rational: Rational): Rational {
         // (a₁ * b₂ - a₂ * b₁) / (b₁ * b₂)
         const subNum = (this.numerator * rational.denominator - rational.numerator * this.denominator);
         const subDen = (this.denominator * rational.denominator);
-        return new Rational(subNum, subDen);
+        return new Rational(subNum, subDen).reduce();
     }
   
     mul(rational: Rational): Rational {
         // (a₁ * a₂) / (b₁ * b₂)
         const mulNum = (this.numerator * rational.numerator);
         const mulDen = (this.denominator * rational.denominator);
-        return new Rational(mulNum, mulDen);
+        return new Rational(mulNum, mulDen).reduce();
     }
   
     div(rational: Rational): Rational {
@@ -38,7 +38,7 @@ export class Rational {
         if (rational.numerator !== 0) {
             const divNum = (this.numerator * rational.denominator);
             const divDen = (rational.numerator * this.denominator);
-            return new Rational(divNum, divDen);
+            return new Rational(divNum, divDen).reduce();;
         } 
         else {
             return new Rational(0, 0);
@@ -46,7 +46,7 @@ export class Rational {
     }
   
     abs(): Rational {
-        return new Rational (Math.abs(this.numerator), Math.abs(this.denominator));
+        return new Rational(Math.abs(this.numerator), Math.abs(this.denominator)).reduce();
     }
   
     exprational(n: number): Rational {
@@ -73,12 +73,12 @@ export class Rational {
         else {
             // (a^x)/(b^x)
             let realNumber = Math.pow(this.numerator, n) / Math.pow(this.denominator, n);
-            const racionalNumber = this.toRacionalNumber(realNumber);
+            const racionalNumber = this.toRationalNumber(realNumber);
             expNum = racionalNumber.expNum;
             expDen = racionalNumber.expDen;
         }
         
-        return new Rational(expNum, expDen);
+        return new Rational(expNum, expDen).reduce();;
     }
   
     expreal(x: number): number {
@@ -88,10 +88,11 @@ export class Rational {
     }
   
     reduce() {
-      throw new Error('Remove this statement and implement this function')
+        const gcd = Math.abs(this.gcd(this.numerator, this.denominator));
+        return new Rational(this.numerator /= gcd, this.denominator /= gcd).minusSignOnNumerator();
     }
 
-    toRacionalNumber(realNumber: number): RationalNumber {
+    toRationalNumber(realNumber: number): RationalNumber {
         let n: RationalNumber = {
             expNum: realNumber,
             expDen: 1
@@ -104,5 +105,20 @@ export class Rational {
         
         return n;
     }
+
+    gcd(a: number,  b: number): number
+    {
+        if (a == 0) return b;
+        return this.gcd(b % a, a);
+    }
+
+    minusSignOnNumerator(): Rational {
+        if(this.denominator < 0) {
+            this.numerator *= -1;
+            this.denominator *= -1;
+        }
+        return new Rational(this.numerator, this.denominator);
+    }
+  
   }
   

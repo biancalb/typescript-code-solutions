@@ -115,5 +115,6 @@ function assertRational(
     console.log(actual.denominator === expectedDenominator)
   }
 
-  const actual = new Rational(-3, 5).exprational(-3)
-  assertRational(actual, -125, 27)
+
+const actual = new Rational(1, 2).div(new Rational(-2, 3))
+assertRational(actual, -3, 4)
