@@ -36,9 +36,9 @@ export class Rational {
     div(rational: Rational): Rational {
         // (a₁ * b₂) / (a₂ * b₁)
         if (rational.numerator !== 0) {
-            const mulNum = (this.numerator * rational.denominator);
-            const mulDen = (this.numerator * this.denominator);
-            return new Rational(mulNum, mulDen);
+            const divNum = (this.numerator * rational.denominator);
+            const divDen = (rational.numerator * this.denominator);
+            return new Rational(divNum, divDen);
         } 
         else {
             return new Rational(0, 0);
