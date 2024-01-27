@@ -1,5 +1,5 @@
 enum ValueType {
-    Number,
+    Operand,
     MathOperation,
 }
 
@@ -10,6 +10,8 @@ type WordyElement = {
 };
 
 const operations = ['plus', 'minus', 'multiplied by', 'divided by'];
+const unSupportedOperations = ['cubed'];
+
 export const answer = (question: string) => {
     let regex = /[-+]?\d+/g;
     let matchNumbers = question.matchAll(regex) || [];
@@ -17,30 +19,33 @@ export const answer = (question: string) => {
 
     Array.from(matchNumbers).forEach((element) => {
         elements.push({
-        value: element.toString(),
-        index: parseInt(element.index?.toString() || '-1'),
-        type: ValueType.Number,
+            value: element.toString(),
+            index: parseInt(element.index?.toString() || '-1'),
+            type: ValueType.Operand,
         });
     });
 
-    const elementsCopy = [...elements];
-    for (let i = 0; i < elementsCopy.length - 1; i++) {
-        const element = elementsCopy[i];
-        const nextElement = elementsCopy[i + 1];
+    operations.forEach(op => {
+        let startIndex = 0;
+        while (startIndex < question.length){
+            const opIndex = question.indexOf(op, startIndex);
+            if (opIndex !== -1) {
+                elements.push({
+                    value: op,
+                    index: opIndex,
+                    type: ValueType.MathOperation,
+                });
+                startIndex = opIndex + op.length + 1;
+            }
+            else {
+                startIndex = question.length;
+            }
+        }
+    });
 
-        const opIndex = element.index + element.value.length + 1;
-        const operation = question.slice(opIndex, nextElement.index).trim();
-
-        if (!operations.some((op) => op == operation)) throw new Error('Syntax error');
-
-        elements.push({
-        value: operation,
-        index: opIndex,
-        type: ValueType.MathOperation,
-        });
-    }
+    elements = [...sortArray(elements)];
     console.log(elements);
-    elements = sortArray(elements);
+    checkSentence(question, elements);
 
     let number = 0;
     let result = 0;
@@ -100,3 +105,28 @@ function Calculate(result: number, num: number, op: string | null = null): numbe
     return result;
 }
 
+function checkSentence(question: string, elements: WordyElement[]) {
+    //non math question
+    if (elements.length == 0) {
+        const errorMsg = question.startsWith('What') ? 'Syntax error' : 'Unknown operation'
+        throw new Error(errorMsg);
+    }
+
+    //missing an operand
+    const countOperands = elements.filter((el) => el.type == ValueType.Operand).length;
+    const countMathOpetations = elements.filter((el) => el.type == ValueType.MathOperation).length;
+    
+    const isValid = countMathOpetations === (countOperands - 1);
+    if (!isValid) throw new Error('Syntax error');
+
+    //reject postfix/prefix notation
+    elements.forEach((element, index) => {
+        if (index % 2 == 0 && element.type !== ValueType.Operand) {
+            throw new Error('Syntax error');
+        }
+    });
+
+    //unknown operation
+    const hasUnsupportedOp = unSupportedOperations.some(item => question.indexOf(item) !== -1)
+    if(hasUnsupportedOp) throw new Error('Unknown operation');
+}

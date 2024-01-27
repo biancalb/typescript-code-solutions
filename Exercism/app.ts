@@ -128,5 +128,10 @@ import { answer } from "./wordy";
 // let text = 'What is 123 plus 45678?';
 // let text = 'What is 17 minus 6 plus 3?';
 // let text = 'What is -12 divided by 2 divided by -3?';
-let text = 'What is 1 plus plus 2?';
+// let text = 'What is 1 plus plus 2?';
+// let text = 'What is 1 plus 2 1?';
+// let text = 'What is 1 plus';
+// let text = 'What is?';
+// let text = 'What is plus 1 2?'; //pre
+let text = 'What is 1 2 plus?'; //pos
 answer(text)
