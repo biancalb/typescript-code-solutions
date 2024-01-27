@@ -11,6 +11,7 @@ import { commands } from "./secret-handshake";
 import { find } from "./binary-search";
 import { LinkedList } from "./linked-list";
 import { Rational } from './rational-numbers'
+import { answer } from "./wordy";
 
 // console.log('Rna Transcription')
 // // const nucleotides: string = 'C';
@@ -100,21 +101,32 @@ import { Rational } from './rational-numbers'
 // console.log(list.pop())
 
 
-function assertRational( 
-    actual: Rational,
-    expectedNumerator: number,
-    expectedDenominator: number
-   ): void {
-    console.log('actual')
-    console.log('numerator= ' + actual.numerator)
-    console.log('denominator= ' + actual.denominator)
-    console.log('\n')
-    console.log('num: ')
-    console.log(actual.numerator === expectedNumerator)
-    console.log('den: ')
-    console.log(actual.denominator === expectedDenominator)
-  }
+// function assertRational( 
+//     actual: Rational,
+//     expectedNumerator: number,
+//     expectedDenominator: number
+//    ): void {
+//     console.log('actual')
+//     console.log('numerator= ' + actual.numerator)
+//     console.log('denominator= ' + actual.denominator)
+//     console.log('\n')
+//     console.log('num: ')
+//     console.log(actual.numerator === expectedNumerator)
+//     console.log('den: ')
+//     console.log(actual.denominator === expectedDenominator)
+//   }
 
 
-const actual = new Rational(1, 2).div(new Rational(-2, 3))
-assertRational(actual, -3, 4)
+// const actual = new Rational(1, 2).div(new Rational(-2, 3))
+// assertRational(actual, -3, 4)
+
+// let text = 'What is 5?';
+// let text = 'What is 3 plus 2 multiplied by 4';
+// let text = 'What is 1 plus 1?';
+// let text = 'What is 53 plus 2?';
+// let text = 'What is -1 plus -10?';
+// let text = 'What is 123 plus 45678?';
+// let text = 'What is 17 minus 6 plus 3?';
+// let text = 'What is -12 divided by 2 divided by -3?';
+let text = 'What is 1 plus plus 2?';
+answer(text)
