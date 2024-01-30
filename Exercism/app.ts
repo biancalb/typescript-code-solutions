@@ -12,6 +12,7 @@ import { find } from "./binary-search";
 import { LinkedList } from "./linked-list";
 import { Rational } from './rational-numbers'
 import { answer } from "./wordy";
+import { Squares } from "./difference-of-squares";
 
 // console.log('Rna Transcription')
 // // const nucleotides: string = 'C';
@@ -133,5 +134,11 @@ import { answer } from "./wordy";
 // let text = 'What is 1 plus';
 // let text = 'What is?';
 // let text = 'What is plus 1 2?'; //pre
-let text = 'What is 1 2 plus?'; //pos
-answer(text)
+// let text = 'What is 1 2 plus?'; //pos
+// answer(text)
+
+console.log('Difference of Squares');
+const squares = new Squares(10);
+console.log('square of the sum= ' + squares.squareOfSum)
+console.log('sum of the squares= ' + squares.sumOfSquares)
+console.log('difference= ' +squares.difference)
