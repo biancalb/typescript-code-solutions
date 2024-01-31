@@ -13,6 +13,7 @@ import { LinkedList } from "./linked-list";
 import { Rational } from './rational-numbers'
 import { answer } from "./wordy";
 import { Squares } from "./difference-of-squares";
+import { Gigasecond } from "./gigasecond";
 
 // console.log('Rna Transcription')
 // // const nucleotides: string = 'C';
@@ -137,8 +138,12 @@ import { Squares } from "./difference-of-squares";
 // let text = 'What is 1 2 plus?'; //pos
 // answer(text)
 
-console.log('Difference of Squares');
-const squares = new Squares(10);
-console.log('square of the sum= ' + squares.squareOfSum)
-console.log('sum of the squares= ' + squares.sumOfSquares)
-console.log('difference= ' +squares.difference)
+// console.log('Difference of Squares');
+// const squares = new Squares(10);
+// console.log('square of the sum= ' + squares.squareOfSum)
+// console.log('sum of the squares= ' + squares.sumOfSquares)
+// console.log('difference= ' +squares.difference)
+
+console.log('Gigasecond')
+const gs = new Gigasecond(new Date(Date.parse('2011-04-25')));
+console.log(gs.date())
