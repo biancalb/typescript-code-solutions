@@ -14,6 +14,7 @@ import { Rational } from './rational-numbers'
 import { answer } from "./wordy";
 import { Squares } from "./difference-of-squares";
 import { Gigasecond } from "./gigasecond";
+import { reverse } from "./reverse-string";
 
 // console.log('Rna Transcription')
 // // const nucleotides: string = 'C';
@@ -147,3 +148,6 @@ import { Gigasecond } from "./gigasecond";
 console.log('Gigasecond')
 const gs = new Gigasecond(new Date(Date.parse('2011-04-25')));
 console.log(gs.date())
+
+console.log("Reverse String")
+console.log(reverse("stressed"))
