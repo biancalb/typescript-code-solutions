@@ -15,6 +15,7 @@ import { answer } from "./wordy";
 import { Squares } from "./difference-of-squares";
 import { Gigasecond } from "./gigasecond";
 import { reverse } from "./reverse-string";
+import { Triangle } from "./triangle";
 
 // console.log('Rna Transcription')
 // // const nucleotides: string = 'C';
@@ -145,9 +146,18 @@ import { reverse } from "./reverse-string";
 // console.log('sum of the squares= ' + squares.sumOfSquares)
 // console.log('difference= ' +squares.difference)
 
-console.log('Gigasecond')
-const gs = new Gigasecond(new Date(Date.parse('2011-04-25')));
-console.log(gs.date())
+// console.log('Gigasecond')
+// const gs = new Gigasecond(new Date(Date.parse('2011-04-25')));
+// console.log(gs.date())
 
-console.log("Reverse String")
-console.log(reverse("stressed"))
+// console.log("Reverse String")
+// console.log(reverse("stressed"))
+
+console.log('Triangle')
+// const triangle = new Triangle(2, 2, 2);
+// const triangle = new Triangle(2, 3, 2);
+// const triangle = new Triangle(2, 2, 2);
+const triangle = new Triangle(1, 1, 3);
+console.log('isEquilateral= ' + triangle.isEquilateral);
+console.log('isIsosceles= ' + triangle.isIsosceles);
+console.log('isScalene= ' + triangle.isScalene);
