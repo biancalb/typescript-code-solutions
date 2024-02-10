@@ -16,6 +16,7 @@ import { Squares } from "./difference-of-squares";
 import { Gigasecond } from "./gigasecond";
 import { reverse } from "./reverse-string";
 import { Triangle } from "./triangle";
+import { transform } from "./etl";
 
 // console.log('Rna Transcription')
 // // const nucleotides: string = 'C';
@@ -153,11 +154,15 @@ import { Triangle } from "./triangle";
 // console.log("Reverse String")
 // console.log(reverse("stressed"))
 
-console.log('Triangle')
-// const triangle = new Triangle(2, 2, 2);
-// const triangle = new Triangle(2, 3, 2);
-// const triangle = new Triangle(2, 2, 2);
-const triangle = new Triangle(1, 1, 3);
-console.log('isEquilateral= ' + triangle.isEquilateral);
-console.log('isIsosceles= ' + triangle.isIsosceles);
-console.log('isScalene= ' + triangle.isScalene);
+// console.log('Triangle')
+// // const triangle = new Triangle(2, 2, 2);
+// // const triangle = new Triangle(2, 3, 2);
+// // const triangle = new Triangle(2, 2, 2);
+// const triangle = new Triangle(1, 1, 3);
+// console.log('isEquilateral= ' + triangle.isEquilateral);
+// console.log('isIsosceles= ' + triangle.isIsosceles);
+// console.log('isScalene= ' + triangle.isScalene);
+
+console.log("ETL");
+var groupPoints = { 1: ['A', 'E', 'I', 'O', 'U'] };
+transform(groupPoints)
